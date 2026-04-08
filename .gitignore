@@ -1,0 +1,20 @@
+# Airflow logs — huge, not needed
+logs/
+
+# Airflow plugins — empty, not needed
+plugins/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Environment variables (if you add secrets later)
+.env
+
+# Docker volumes
+*.db
+
+# OS files
+.DS_Store
+Thumbs.db
