@@ -1,4 +1,4 @@
-# Weather Pipeline
+# 🌦️Weather Pipeline
 
 A production-style ETL pipeline that fetches real-time weather data, transforms it, and stores it in PostgreSQL — orchestrated with Apache Airflow and containerised with Docker.
 
@@ -143,8 +143,8 @@ You should see one row per day with city, temperature (°C and °F), humidity, a
 
 ---
 
-## Author
+## 👨‍💻 Author
 
-**Sarthak** 
+**Sarthak Satish Deshmukh**   
+[GitHub](https://github.com/sarthakkkk7) • [LinkedIn](https://www.linkedin.com/in/sarthakkkk7)
 
-[GitHub](https://github.com/sarthakkkk7) 
