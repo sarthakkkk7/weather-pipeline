@@ -43,7 +43,7 @@ weather-pipeline/
 
 ## Pipeline architecture -
 
-<img width="1000" height="500" alt="architecture" src="https://github.com/user-attachments/assets/97e7b226-e51e-444b-b9ec-0ce1a3582f95" />
+<img width="1000" height="300" alt="architecture" src="https://github.com/user-attachments/assets/97e7b226-e51e-444b-b9ec-0ce1a3582f95" />
 
 
 
@@ -100,10 +100,10 @@ Login with `admin` / `admin`, enable the `weather_pipeline` DAG, and trigger it 
 ## Screenshots from Airflow -
 
 ### Airflow DAG — successful run
-<img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/109b0bcc-7761-4d47-9378-c73bbb448184" />
+<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/109b0bcc-7761-4d47-9378-c73bbb448184" />
 
 ### Pipeline runs history
-<img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/48567fda-4383-484c-a6ce-960e4f2002fa" />
+<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/48567fda-4383-484c-a6ce-960e4f2002fa" />
 
 ---
 
@@ -123,7 +123,7 @@ You should see one row per day with city, temperature (°C and °F), humidity, a
 
 ## Sample output -
 
-<img width="1000" height="500" alt="image" src="https://github.com/user-attachments/assets/67ce040e-e943-4279-8ece-1553d3e07704" />
+<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/67ce040e-e943-4279-8ece-1553d3e07704" />
 
 
 > Note: The `id` column may show gaps (e.g. 1, 34) because PostgreSQL's
