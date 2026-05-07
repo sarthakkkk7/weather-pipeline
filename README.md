@@ -134,7 +134,7 @@ You should see one row per day with city, temperature (°C and °F), humidity, a
 
 ## What's next -
 
-- [ ] Add support for multiple cities
+- [x] Add support for multiple cities
 - [ ] Email alerts on task failure
 - [ ] dbt models for data transformation layer
 - [ ] Extend to a cloud data warehouse (Snowflake / BigQuery)
