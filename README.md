@@ -10,7 +10,7 @@ Built as part of a hands-on data engineering learning journey.
 
 Every day, this pipeline automatically:
 
-1. **Extracts** live weather data for Mumbai from the [wttr.in](https://wttr.in) API
+1. **Extracts** live weather data for Mumbai, Pune, Delhi & Bengaluru from the [wttr.in](https://wttr.in) API
 2. **Transforms** the raw response — cleans types, adds Fahrenheit conversion
 3. **Loads** the result into a PostgreSQL table with upsert logic so re-runs never create duplicates
 
@@ -100,10 +100,12 @@ Login with `admin` / `admin`, enable the `weather_pipeline` DAG, and trigger it 
 ## Screenshots from Airflow -
 
 ### Airflow DAG — successful run
-<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/109b0bcc-7761-4d47-9378-c73bbb448184" />
+<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/35c33d41-9f00-4702-a078-7f0845d9061d" />
+
 
 ### Pipeline runs history
-<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/48567fda-4383-484c-a6ce-960e4f2002fa" />
+<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/8205f9a7-6e5f-4ffa-90ff-db116a436520" />
+
 
 ---
 
@@ -112,9 +114,17 @@ Login with `admin` / `admin`, enable the `weather_pipeline` DAG, and trigger it 
 ```bash
 docker exec -it weather-pipeline-postgres-1 psql -U airflow -d airflow
 ```
-
 ```sql
+SQL
+--This query is for unordered result
 SELECT * FROM weather;
+```
+```sql
+SQL
+--This query is for alphabetically ordered result
+SELECT city, temp_c, temp_f, description, fetch_date
+FROM weather
+ORDER BY city;
 ```
 
 You should see one row per day with city, temperature (°C and °F), humidity, and weather description.
@@ -123,12 +133,11 @@ You should see one row per day with city, temperature (°C and °F), humidity, a
 
 ## Sample output -
 
-<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/67ce040e-e943-4279-8ece-1553d3e07704" />
+<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/946b8a94-f6d9-4e64-8922-739b1ea724f8" />
 
 
-> Note: The `id` column may show gaps (e.g. 1, 34) because PostgreSQL's
-> `SERIAL` counter increments even on failed or rolled-back inserts.
-> This is expected — what matters is one clean row per city per day.
+
+> Note: Mumbai has extra records from the one city version of this DAG pipeline, which was letter upgraded to support multiple cities.
 
 ---
 
