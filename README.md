@@ -1,4 +1,4 @@
-# Weather Pipeline
+# 🌦️Weather Pipeline 
 
 A production-style ETL pipeline that fetches real-time weather data, transforms it, and stores it in PostgreSQL — orchestrated with Apache Airflow and containerised with Docker.
 
@@ -6,7 +6,7 @@ Built as part of a hands-on data engineering learning journey.
 
 ---
 
-## What it does
+## What it does -
 
 Every day, this pipeline automatically:
 
@@ -16,19 +16,19 @@ Every day, this pipeline automatically:
 
 ---
 
-## Tech stack
+## Tech stack -
 
 | Tool | Role |
 |------|------|
 | Apache Airflow 2.8 | Orchestration & scheduling |
-| PostgreSQL 15 | Data storage |
-| Python 3.8 | Pipeline logic |
+| PostgreSQL 18.2 | Data storage |
+| Python 3.13 | Pipeline logic |
 | Docker & Docker Compose | Local containerised environment |
 | psycopg2 | Python → Postgres connector |
 
 ---
 
-## Project structure
+## Project structure -
 
 ```
 weather-pipeline/
@@ -41,28 +41,15 @@ weather-pipeline/
 
 ---
 
-## Pipeline architecture
+## Pipeline architecture -
 
-```
-wttr.in API
-    │
-    ▼
-[ extract_weather ]
-  Fetches current conditions for Mumbai
-    │
-    ▼
-[ transform_weather ]
-  Converts types, adds °F, normalises fields
-    │
-    ▼
-[ load_weather ]
-  Upserts into PostgreSQL
-  (one row per city per day — no duplicates)
-```
+<img width="1000" height="300" alt="architecture" src="https://github.com/user-attachments/assets/97e7b226-e51e-444b-b9ec-0ce1a3582f95" />
+
+
 
 ---
 
-## Key concepts demonstrated
+## Key concepts demonstrated -
 
 **Idempotency** — Running the pipeline multiple times on the same day always results in exactly one row per city. Achieved using PostgreSQL's `ON CONFLICT ... DO UPDATE` (upsert).
 
@@ -74,7 +61,7 @@ wttr.in API
 
 ---
 
-## Getting started
+## Getting started -
 
 ### Prerequisites
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed and running
@@ -110,9 +97,17 @@ http://localhost:8081
 
 Login with `admin` / `admin`, enable the `weather_pipeline` DAG, and trigger it manually.
 
+## Screenshots from Airflow -
+
+### Airflow DAG — successful run
+<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/109b0bcc-7761-4d47-9378-c73bbb448184" />
+
+### Pipeline runs history
+<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/48567fda-4383-484c-a6ce-960e4f2002fa" />
+
 ---
 
-## Verify data in Postgres
+## Verify data in Postgres -
 
 ```bash
 docker exec -it weather-pipeline-postgres-1 psql -U airflow -d airflow
@@ -126,15 +121,18 @@ You should see one row per day with city, temperature (°C and °F), humidity, a
 
 ---
 
-## Sample output
+## Sample output -
 
-| id | city | temp_c | temp_f | feels_like_c | humidity | description | fetched_at |
-|----|------|--------|--------|--------------|----------|-------------|------------|
-| 1 | Mumbai | 28.0 | 82.4 | 33.0 | 74 | Haze | 2026-04-07 20:34:19 |
+<img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/67ce040e-e943-4279-8ece-1553d3e07704" />
+
+
+> Note: The `id` column may show gaps (e.g. 1, 34) because PostgreSQL's
+> `SERIAL` counter increments even on failed or rolled-back inserts.
+> This is expected — what matters is one clean row per city per day.
 
 ---
 
-## What's next
+## What's next -
 
 - [ ] Add support for multiple cities
 - [ ] Email alerts on task failure
@@ -143,8 +141,8 @@ You should see one row per day with city, temperature (°C and °F), humidity, a
 
 ---
 
-## Author
+## 👨‍💻 Author -
 
-**Sarthak** 
+**Sarthak Satish Deshmukh**   
+[GitHub](https://github.com/sarthakkkk7) • [LinkedIn](https://www.linkedin.com/in/sarthakkkk7)
 
-[GitHub](https://github.com/sarthakkkk7) 
