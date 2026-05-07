@@ -43,7 +43,9 @@ weather-pipeline/
 
 ## Pipeline architecture -
 
-<img width="1000" height="5000" alt="image" src="https://github.com/user-attachments/assets/3df2e66f-d2ae-4138-bd40-ca9d29cb51ef" />
+<img width="1000" height="500" alt="architecture" src="https://github.com/user-attachments/assets/97e7b226-e51e-444b-b9ec-0ce1a3582f95" />
+
+
 
 ---
 
