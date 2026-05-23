@@ -99,7 +99,7 @@ Login with `admin` / `admin`, enable the `weather_pipeline` DAG, and trigger it 
 
 ## Screenshots from Airflow -
 
-### Airflow DAG — successful run
+### Airflow DAG (Directed Acyclic Graph) — successful run
 <img width="1000" height="300" alt="image" src="https://github.com/user-attachments/assets/35c33d41-9f00-4702-a078-7f0845d9061d" />
 
 
